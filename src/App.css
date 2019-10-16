@@ -26,3 +26,32 @@
 .links a:hover {
   color: #09d3ac;
 }
+
+.form {
+  margin: 0 auto;
+  padding: 100px 30px 0;
+}
+
+.input-range {
+  margin-bottom: 160px;
+}
+.MuiSlider-thumb {
+  background-color: #07d3b5 !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+.MuiSlider-track {
+  background-color: #6383ea !important;
+  height: 8px !important;
+}
+.MuiSlider-rail {
+  background-color: #6383ea !important;
+  height: 8px !important;
+}
+.MuiSlider-root {
+  height: 8px !important;
+}
+
+button:focus {
+  outline: none !important;
+}
