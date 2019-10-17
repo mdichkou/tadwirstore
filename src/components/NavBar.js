@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -15,25 +15,36 @@ import {
 } from "mdbreact";
 
 import { NavLink } from "react-router-dom";
+import {FormattedMessage} from 'react-intl';
 
-class NavbarPage extends Component {
-  state = {
-    isOpen: false
+const  NavbarPage = () => {
+  const [isOpen, setisOpen] = useState(false);
+  const [value, setValue] = useState("fr");
+  const onClick = () => {
+    if (value === "fr")
+    {
+    setValue("ar");
+    localStorage.setItem('language', "ar");
+    }
+    else
+    {
+    setValue("fr");
+    localStorage.setItem('language', "fr");
+    }
+  };
+  const toggleCollapse = () => {
+    setisOpen(!isOpen)
   };
 
-  toggleCollapse = () => {
-    this.setState({ isOpen: !this.state.isOpen });
-  };
 
-  render() {
     return (
       <MDBNavbar color="indigo accent-2" dark expand="md">
         <MDBContainer>
           <MDBNavbarBrand>
             <img width="200px" src="images/logo.png" alt="logoside" />
           </MDBNavbarBrand>
-          <MDBNavbarToggler onClick={this.toggleCollapse} />
-          <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
+          <MDBNavbarToggler onClick={toggleCollapse} />
+          <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
             <MDBNavbarNav right>
               <MDBNavItem className="mr-4 mt-2 links">
                 <NavLink
@@ -42,7 +53,9 @@ class NavbarPage extends Component {
                   className="font-weight-bold"
                   to="#!"
                 >
-                  Acceuil
+                  <FormattedMessage id="accueil.label"
+                      defaultMessage="Acceuil"
+                      description="Link on react page"/>
                 </NavLink>
               </MDBNavItem>
               <MDBNavItem className="mr-4 mt-2 links">
@@ -51,7 +64,9 @@ class NavbarPage extends Component {
                   className="font-weight-bold"
                   to="#!"
                 >
-                  Nouvelles
+                  <FormattedMessage id="nouvelles.label"
+                      defaultMessage="Nouvelles"
+                      description="Link on react page"/>
                 </NavLink>
               </MDBNavItem>
               <MDBNavItem className="mr-4 mt-2 links">
@@ -60,12 +75,16 @@ class NavbarPage extends Component {
                   className="font-weight-bold"
                   to="#!"
                 >
-                  Classement
+                  <FormattedMessage id="classement.label"
+                      defaultMessage="Classement"
+                      description="Link on react page"/>
                 </NavLink>
               </MDBNavItem>
               <MDBNavItem>
-                <button type="button" className="btn btn-white mr-4 btn-sm">
-                  Français
+                <button id="myButton" type="button" onClick={onClick} className="btn btn-white mr-4 btn-sm">
+                <FormattedMessage id="lang.label"
+                      defaultMessage="Français"
+                      description="Link on react page"/>
                 </button>
               </MDBNavItem>
               <MDBNavItem>
@@ -74,8 +93,12 @@ class NavbarPage extends Component {
                     <MDBIcon icon="user" />
                   </MDBDropdownToggle>
                   <MDBDropdownMenu className="dropdown-default">
-                    <MDBDropdownItem href="#!">Sign in</MDBDropdownItem>
-                    <MDBDropdownItem href="#!">Sign up</MDBDropdownItem>
+                    <MDBDropdownItem href="#!"> <FormattedMessage id="signin.label"
+                      defaultMessage="Français"
+                      description="Link on react page"/></MDBDropdownItem>
+                    <MDBDropdownItem href="#!"> <FormattedMessage id="signup.label"
+                      defaultMessage="Français"
+                      description="Link on react page"/></MDBDropdownItem>
                   </MDBDropdownMenu>
                 </MDBDropdown>
               </MDBNavItem>
@@ -84,7 +107,6 @@ class NavbarPage extends Component {
         </MDBContainer>
       </MDBNavbar>
     );
-  }
 }
 
 export default NavbarPage;

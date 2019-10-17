@@ -14,12 +14,18 @@ const useStyles = makeStyles(theme => ({
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
         width: 80,
+        [theme.breakpoints.down('sm')]: {
+            float: "right",
+          },
     },
     floatRight: {
         float: "right",
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
         width: 80,
+        [theme.breakpoints.down('sm')]: {
+            float: "left",
+          },
     }
 }));
 
@@ -39,7 +45,7 @@ export default function RangeSlider() {
             <div className="row mt-3">
                 <div className="col">
                     <TextField
-                        id="standard-read-only-input"
+                        id="input1"
                         label="Min"
                         value={value[0] + "DH"}
                         className={classes.floatRight}
@@ -50,7 +56,7 @@ export default function RangeSlider() {
                     />
                 </div>
                 <div className="col">
-                    <div className={classes.root}>
+                    <div className={classes.root} id="sliderRange">
 
                         <Typography color="primary" id="range-slider" gutterBottom className="text-center">
                             10 000<sup>DH</sup> - 500 000<sup>DH</sup>
@@ -69,7 +75,7 @@ export default function RangeSlider() {
                 </div>
                 <div className="col">
                     <TextField
-                        id="standard-read-only-input"
+                        id="input2"
                         label="Max"
                         value={value[1] + "DH"}
                         className={classes.textField}

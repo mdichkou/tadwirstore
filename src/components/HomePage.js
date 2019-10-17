@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
+import {FormattedMessage} from 'react-intl';
 
 class HomePage extends Component {
   state = {
@@ -22,10 +23,9 @@ class HomePage extends Component {
               className="img-fluid mx-auto d-block"
             />
             <h1 className="text-justify text-center mt-5">
-              <strong>TadwirStore</strong> Website est une platforme pour
-            </h1>
-            <h1 className="text-justify text-center">
-              acheter et vendre vos déchets pour le recyclage
+              <FormattedMessage id="description.label"
+                      defaultMessage="Nouvelles"
+                      description="Link on react page"/>
             </h1>
             <a href="https://www.apple.com/ios/app-store/">
               <img

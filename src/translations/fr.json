@@ -1,0 +1,18 @@
+{
+  "accueil.label": "Accueil",
+  "nouvelles.label": "Nouvelles",
+  "classement.label": "Classement",
+  "signin.label": "se connecter",
+  "signup.label": "s'inscrire",
+  "lang.label": "Français",
+  "prix.label": "prix",
+  "type.label": "type",
+  "ville.label": "Ville",
+  "details.label": "details",
+  "description.label": "TadwirStore Website est une platforme pour acheter et vendre vos déchets pour le recyclage",
+  "pain.label": "Pain",
+  "plastique.label": "Plastique",
+  "verre.label": "Verre",
+  "papier.label": "Papier",
+  "autre.label": "Autre"
+}

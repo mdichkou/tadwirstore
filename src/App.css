@@ -55,3 +55,16 @@
 button:focus {
   outline: none !important;
 }
+
+@media screen and (min-width: 0px) and (max-width: 850px) {
+  #sliderRange { width: 200px }  /* show it on small screens */
+  .heighfix {
+    height: auto !important;
+  }
+}
+.heighfix {
+  height: 300px;
+}
+.MuiPaper-elevation1 {
+  box-shadow: 4px -2px 20px 1px rgba(0, 0, 0, 0.28), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12) !important;
+}

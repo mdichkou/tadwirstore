@@ -1,0 +1,18 @@
+{
+  "accueil.label": "الصفحة الرئيسية",
+  "nouvelles.label": "أخبار",
+  "classement.label": "تصنيف",
+  "signin.label": "تسجيل الدخول",
+  "signup.label": "أفتح حساب",
+  "lang.label": "العربية",
+  "prix.label": "السعر",
+  "type.label": "النوع",
+  "ville.label": "المدينة",
+  "details.label": "التفاصيل",
+  "description.label": "الموقع هو منصة لشراء وبيع النفايات الخاصة بك لإعادة التدوير TadwirStore",
+  "pain.label": "الخبز",
+  "plastique.label": "البلاستيك",
+  "verre.label": "الزجاجه",
+  "papier.label": "الورق",
+  "autre.label": "اشياء اخرى"
+}
