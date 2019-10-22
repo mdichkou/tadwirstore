@@ -5,20 +5,26 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Rating from '@material-ui/lab/Rating';
+import Box from '@material-ui/core/Box';
+import Icon from '@material-ui/core/Icon';
 
 
 const useStyles = makeStyles({
     card: {
         maxWidth: 345,
-        marginLeft: 20
+        marginLeft: 20,
+        position: 'relative',
     },
     media: {
         height: 140,
     },
+    floatRight: {
+        position: 'absolute',
+        right: 10
+    }
 });
 
 export default function MediaCard() {
@@ -45,19 +51,29 @@ export default function MediaCard() {
                     <Typography gutterBottom variant="h5" component="h2">
                         <strong>2000</strong>.00 Dirham
           </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                        across all continents except Antarctica
-          </Typography>
+          <div className="mt-3">
+           <Box component="span" bgcolor="text.hint" p={2} className="mr-2">
+                        test
+                        </Box>
+                        <Box component="span" bgcolor="text.hint" p={2} className="mr-2">
+                        test
+                        </Box>
+                        <Box component="span" bgcolor="text.hint" p={2} className="mr-2">
+                        test
+                        </Box>
+                        <Box component="span" bgcolor="text.hint" p={2} className="mr-2">
+                        test
+                        </Box>
+                          <Box component="span" bgcolor="text.hint" p={2} className="mr-2">
+                        test
+                        </Box>
+          </div>
+                       
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
-                    Share
-        </Button>
-                <Button size="small" color="primary">
-                    Learn More
-        </Button>
+               <Icon className="fas fa-eye" style={{ width: "auto"}}/><span>(2000)</span>
+               <span className={classes.floatRight}>3 jours</span>
             </CardActions>
         </Card>
     );
