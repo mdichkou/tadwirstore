@@ -41,7 +41,7 @@ const  NavbarPage = () => {
       <MDBNavbar color="indigo accent-2" dark expand="md">
         <MDBContainer>
           <MDBNavbarBrand>
-            <img width="200px" src="images/logo.png" alt="logoside" />
+            <img width="200px" src="/images/logo.png" alt="logoside" />
           </MDBNavbarBrand>
           <MDBNavbarToggler onClick={toggleCollapse} />
           <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>

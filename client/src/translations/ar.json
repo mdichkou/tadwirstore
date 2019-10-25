@@ -14,5 +14,8 @@
   "plastique.label": "البلاستيك",
   "verre.label": "الزجاجه",
   "papier.label": "الورق",
-  "autre.label": "اشياء اخرى"
+  "autre.label": "اشياء اخرى",
+  "quantite.label": "الكمية",
+  "poids.label": "الوزن",
+  "livraison.label": "التوصيل"
 }

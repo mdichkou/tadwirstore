@@ -14,5 +14,8 @@
   "plastique.label": "Plastique",
   "verre.label": "Verre",
   "papier.label": "Papier",
-  "autre.label": "Autre"
+  "autre.label": "Autre",
+  "quantite.label": "Quantite",
+  "poids.label": "Poids",
+  "livraison.label": "Livraison"
 }

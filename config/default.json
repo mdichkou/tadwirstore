@@ -1,0 +1,8 @@
+{
+  "con": {
+    "host": "localhost",
+    "user": "root",
+    "password": "tiger",
+    "database": "tadwirstore"
+  }
+}

@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
 import NavbarPage from "./components/NavBar";
-import { BrowserRouter as Router } from "react-router-dom";
+import {Route, BrowserRouter as Router ,Switch} from "react-router-dom";
 import HomePage from "./components/HomePage";
-import FilterPage from "./components/FilterPage";
+import Article from "./components/Article";
 import {IntlProvider} from "react-intl";
 import messages_fr from "./translations/fr.json";
 import messages_ar from "./translations/ar.json";
@@ -23,9 +23,11 @@ React.useEffect(() => {
   return (
     <IntlProvider locale={language} messages={messages[language]}>
      <Router>
-      <NavbarPage />
-      <HomePage />
-      <FilterPage />
+     <NavbarPage />
+     <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route path="/article/:id" component={Article} />
+      </Switch>
     </Router>
     </IntlProvider>
   );

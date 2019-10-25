@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import {FormattedMessage} from 'react-intl';
+import FilterPage from "./FilterPage";
 
 class HomePage extends Component {
   state = {
@@ -13,6 +14,7 @@ class HomePage extends Component {
 
   render() {
     return (
+      <div>
       <MDBContainer className="mt-5">
         <MDBRow>
           <MDBCol md="12" className="text-center">
@@ -46,6 +48,8 @@ class HomePage extends Component {
           </MDBCol>
         </MDBRow>
       </MDBContainer>
+      <FilterPage />
+      </div>
     );
   }
 }
