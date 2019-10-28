@@ -11,13 +11,12 @@ import Rating from "@material-ui/lab/Rating";
 import Icon from "@material-ui/core/Icon";
 import { FormattedMessage } from "react-intl";
 import Badge from "@material-ui/core/Badge";
+import { withRouter } from 'react-router-dom';
 
 const useStyles = makeStyles({
   card: {
-    minWidth: 345,
-    maxWidth: 345,
-    marginLeft: 20,
-    marginTop: 20,
+    minWidth: 330,
+    maxWidth: 372,
     position: "relative"
   },
   media: {
@@ -25,14 +24,11 @@ const useStyles = makeStyles({
   },
   floatRight: {
     position: "absolute",
-    right: 10
+    right: "20%"
   }
 });
-export default function MediaCard(props) {
+function MediaCard(props) {
   const classes = useStyles();
-  const onClick = () => {
-    console.log("good");
-  };
   const types = [
     <FormattedMessage
       id="pain.label"
@@ -60,20 +56,38 @@ export default function MediaCard(props) {
       description="Link on react page"
     />
   ];
+  const qualite = [
+    <FormattedMessage
+      id="basse.label"
+      defaultMessage="Acceuil"
+      description="Link on react page"
+    />,
+    <FormattedMessage
+      id="moyenne.label"
+      defaultMessage="Acceuil"
+      description="Link on react page"
+    />,
+    <FormattedMessage
+      id="haut.label"
+      defaultMessage="Acceuil"
+      description="Link on react page"
+    />
+  ];
   return (
     <Card className={classes.card}>
-      <CardActionArea onClick={onClick}>
+      <CardActionArea onClick={() => {
+        props.history.push('/article/' + props.id);
+      }}>
         <CardMedia
           className={classes.media}
-          image="images/plastique.jpg"
+          image="/images/plastique.jpg"
           title="Contemplative Reptile"
         />
         <CardContent>
           <div style={{ display: "inline-flex" }}>
             <Avatar
               alt="Remy Sharp"
-              src="images/pdp.jpg"
-              className={classes.avatar}
+              src="/images/pdp.jpg"
             />
             <div>
               <Typography component="legend" className="ml-2">
@@ -198,3 +212,5 @@ export default function MediaCard(props) {
     </Card>
   );
 }
+
+export default withRouter(MediaCard);

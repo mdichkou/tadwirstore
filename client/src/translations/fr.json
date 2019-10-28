@@ -17,5 +17,8 @@
   "autre.label": "Autre",
   "quantite.label": "Quantite",
   "poids.label": "Poids",
-  "livraison.label": "Livraison"
+  "livraison.label": "Livraison",
+  "basse.label": "Basse",
+  "moyenne.label": "Moyenne",
+  "haut.label": "Haut"
 }

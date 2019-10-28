@@ -6,7 +6,7 @@ export default function ResultSearch(props) {
     <div>
       <div className="mt-3 row p-3">
         {props.data.map((element, index) => (
-          <div className="col" key={index}>
+          <div className="col mt-2" key={index}>
             <MediaCard
               title="mdichkou"
               poids={element.poids}
@@ -17,6 +17,7 @@ export default function ResultSearch(props) {
               ville={element.ville}
               vues={element.vues}
               enchere={element.enchere}
+              id={element.id}
             />
           </div>
         ))}

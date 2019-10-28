@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { withStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import PropTypes from "prop-types";
@@ -126,6 +125,9 @@ export default function FilterPage() {
     setPage(1);
     setValue(newValue);
   };
+   const handleChangeInput = name => event => {
+    setValues({ ...values, [name]: event.target.value });
+  };
   const handleChanges = event => {
     setPage(1);
     setValues(oldValues => ({
@@ -138,17 +140,28 @@ export default function FilterPage() {
   };
   const [selectedValue, setSelectedValue] = React.useState("5");
   const [values, setValues] = React.useState({
-    ville: "none",
+    ville: "",
     poids: "",
     quantite: "",
     qualite: "",
-    livraison: ""
+    livraison: "",
+    sort:""
   });
   const radioChange = event => {
     setPage(1);
     setSelectedValue(event.target.value);
   };
   React.useEffect(() => {
+    var poids = values.poids;
+    var quantite = values.quantite;
+    var ville = values.ville;
+    var livraison = values.livraison;
+    var qualite = values.qualite;
+    if(values.poids === "") poids = "none";
+    if(values.quantite === "") quantite = "none";
+    if(values.ville === "") ville = "none";
+    if(values.livraison === "") livraison = "none";
+    if(values.qualite === "") qualite = "none";
     axios
       .get(
         "http://localhost:5000/api/articles/" +
@@ -160,7 +173,11 @@ export default function FilterPage() {
           "/" +
           selectedValue +
           "/" +
-          values.ville
+          ville + 
+          "/" + poids + 
+          "/" + quantite + 
+          "/" + qualite + 
+          "/" + livraison
       )
       .then(res => {
         const data = res.data;
@@ -177,8 +194,10 @@ export default function FilterPage() {
 
   return (
     <MuiThemeProvider theme={theme}>
-      <Container className="mb-5">
-        <Paper className={classes.root}>
+      <Container className="mt-5 mb-5" style={{
+        backgroundColor:"#fff",
+         boxShadow: "0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)"
+      }}>
           <Tabs
             value={value}
             onChange={handleChange}
@@ -292,8 +311,8 @@ export default function FilterPage() {
                   src="images/plastique.png"
                   alt=""
                   id="child"
-                  width="100px"
-                  height="100px"
+                  width="50px"
+                  height="50px"
                 />
                 <p className="text-center mt-2 mb-2">
                   <FormattedMessage
@@ -318,8 +337,8 @@ export default function FilterPage() {
                   src="images/bread.png"
                   alt=""
                   id="child"
-                  width="100px"
-                  height="100px"
+                  width="50px"
+                  height="50px"
                 />
                 <p className="text-center mt-2 mb-2">
                   <FormattedMessage
@@ -344,8 +363,8 @@ export default function FilterPage() {
                   src="images/glasses.png"
                   alt=""
                   id="child"
-                  width="100px"
-                  height="100px"
+                  width="50px"
+                  height="50px"
                 />
                 <p className="text-center mt-2 mb-2">
                   <FormattedMessage
@@ -370,8 +389,8 @@ export default function FilterPage() {
                   src="images/paper.png"
                   alt=""
                   id="child"
-                  width="100px"
-                  height="100px"
+                  width="50px"
+                  height="50px"
                 />
                 <p className="text-center mt-2 mb-2">
                   <FormattedMessage
@@ -396,8 +415,8 @@ export default function FilterPage() {
                   src="images/other.png"
                   alt=""
                   id="child"
-                  width="100px"
-                  height="100px"
+                  width="50px"
+                  height="50px"
                 />
                 <p className="text-center mt-2 mb-2">
                   <FormattedMessage
@@ -435,7 +454,7 @@ export default function FilterPage() {
                     id: "outlined-ville-simple"
                   }}
                 >
-                  <MenuItem value="none">
+                  <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
                   {villes.ville.map((element, index) => (
@@ -449,53 +468,39 @@ export default function FilterPage() {
           </TabPanel>
           <TabPanel value={value} index="four" className="heighfix">
             <div className="row">
-              <div className="col">
+              <div className="col mt-2">
                 <FormControl variant="outlined" className={classes.formControl}>
-                  <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
-                    Poids
-                  </InputLabel>
-                  <Select
-                    value={values.poids}
-                    onChange={handleChanges}
-                    labelWidth={labelWidth}
-                    inputProps={{
-                      name: "age",
-                      id: "outlined-age-simple"
-                    }}
-                  >
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
-                  </Select>
+                  <TextField
+        id="outlined-poids"
+        label={ <FormattedMessage
+                    id="poids.label"
+                    defaultMessage="Acceuil"
+                    description="Link on react page"
+                  />}
+        className={classes.textField}
+        value={values.poids}
+        onChange={handleChangeInput('poids')}
+        variant="outlined"
+      />
                 </FormControl>
               </div>
-              <div className="col">
+              <div className="col mt-2">
                 <FormControl variant="outlined" className={classes.formControl}>
-                  <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
-                    Quantité
-                  </InputLabel>
-                  <Select
-                    value={values.quantite}
-                    onChange={handleChanges}
-                    labelWidth={labelWidth}
-                    inputProps={{
-                      name: "age",
-                      id: "outlined-age-simple"
-                    }}
-                  >
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
-                  </Select>
+                  <TextField
+        id="outlined-quantite"
+        label={ <FormattedMessage
+                    id="quantite.label"
+                    defaultMessage="Acceuil"
+                    description="Link on react page"
+                  />}
+        className={classes.textField}
+        value={values.quantite}
+        onChange={handleChangeInput('quantite')}
+        variant="outlined"
+      />
                 </FormControl>
               </div>
-              <div className="col">
+              <div className="col mt-2">
                 <FormControl variant="outlined" className={classes.formControl}>
                   <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
                     Qualité
@@ -505,20 +510,20 @@ export default function FilterPage() {
                     onChange={handleChanges}
                     labelWidth={labelWidth}
                     inputProps={{
-                      name: "age",
-                      id: "outlined-age-simple"
+                      name: "qualite",
+                      id: "outlined-qualite-simple"
                     }}
                   >
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    <MenuItem value={1}>basse qualité</MenuItem>
+                    <MenuItem value={2}>moyenne qualité</MenuItem>
+                    <MenuItem value={3}>haute qualité</MenuItem>
                   </Select>
                 </FormControl>
               </div>
-              <div className="col">
+              <div className="col mt-2">
                 <FormControl variant="outlined" className={classes.formControl}>
                   <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
                     Livraison
@@ -528,16 +533,15 @@ export default function FilterPage() {
                     onChange={handleChanges}
                     labelWidth={labelWidth}
                     inputProps={{
-                      name: "age",
-                      id: "outlined-age-simple"
+                      name: "livraison",
+                      id: "outlined-livraison-simple"
                     }}
                   >
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    <MenuItem value="No">No</MenuItem>
+                    <MenuItem value="Oui">Oui</MenuItem>
                   </Select>
                 </FormControl>
               </div>
@@ -555,20 +559,20 @@ export default function FilterPage() {
                   Trier par
                 </InputLabel>
                 <Select
-                  value={values.qualite}
+                  value={values.sort}
                   onChange={handleChanges}
                   labelWidth={labelWidth}
                   inputProps={{
-                    name: "age",
-                    id: "outlined-age-simple"
+                    name: "sort",
+                    id: "outlined-sort-simple"
                   }}
                 >
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value={1}>le plus récent</MenuItem>
+                  <MenuItem value={2}>le moin cher</MenuItem>
+                  <MenuItem value={3}>le plus cher</MenuItem>
                 </Select>
               </FormControl>
             </div>
@@ -587,7 +591,6 @@ export default function FilterPage() {
               </Button>
             </div>
           </div>
-        </Paper>
       </Container>
     </MuiThemeProvider>
   );

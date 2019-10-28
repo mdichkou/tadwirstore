@@ -17,5 +17,8 @@
   "autre.label": "اشياء اخرى",
   "quantite.label": "الكمية",
   "poids.label": "الوزن",
-  "livraison.label": "التوصيل"
+  "livraison.label": "التوصيل",
+  "basse.label": "منخفضة",
+  "moyenne.label": "متوسطة",
+  "haut.label": "عالية"
 }

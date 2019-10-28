@@ -16,6 +16,9 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.react-numeric-input b {
+    background-color:#7550ec !important;
+}
 
 .App-link {
   color: #09d3ac;
@@ -68,3 +71,9 @@ button:focus {
 .MuiPaper-elevation1 {
   box-shadow: 4px -2px 20px 1px rgba(0, 0, 0, 0.28), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12) !important;
 }
+
+.slide-show .ss-fixed-height .ss-slide-image > img {
+
+    width: 100% !important; 
+    margin:"10px" !important;
+  }

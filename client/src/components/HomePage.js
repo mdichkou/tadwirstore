@@ -20,18 +20,18 @@ class HomePage extends Component {
           <MDBCol md="12" className="text-center">
             <img
               src="images/logo1.png"
-              width="350px"
+              width="250px"
               alt=""
               className="img-fluid mx-auto d-block"
             />
-            <h1 className="text-justify text-center mt-5">
+            <h2 className="text-justify text-center mt-5">
               <FormattedMessage id="description.label"
                       defaultMessage="Nouvelles"
                       description="Link on react page"/>
-            </h1>
+            </h2>
             <a href="https://www.apple.com/ios/app-store/">
               <img
-                width="300px"
+                width="200px"
                 alt=""
                 src="images/android.png"
                 className="mr-3 mt-3"
@@ -39,7 +39,7 @@ class HomePage extends Component {
             </a>
             <a href="https://www.apple.com/ios/app-store/">
               <img
-                width="300px"
+                width="200px"
                 alt=""
                 src="images/ios.png"
                 className="mt-3"
