@@ -56,23 +56,6 @@ function MediaCard(props) {
       description="Link on react page"
     />
   ];
-  const qualite = [
-    <FormattedMessage
-      id="basse.label"
-      defaultMessage="Acceuil"
-      description="Link on react page"
-    />,
-    <FormattedMessage
-      id="moyenne.label"
-      defaultMessage="Acceuil"
-      description="Link on react page"
-    />,
-    <FormattedMessage
-      id="haut.label"
-      defaultMessage="Acceuil"
-      description="Link on react page"
-    />
-  ];
   return (
     <Card className={classes.card}>
       <CardActionArea onClick={() => {

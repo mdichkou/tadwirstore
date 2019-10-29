@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
         width: 80,
         [theme.breakpoints.down('sm')]: {
             float: "right",
-          },
+        },
     },
     floatRight: {
         float: "right",
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
         width: 80,
         [theme.breakpoints.down('sm')]: {
             float: "left",
-          },
+        },
     }
 }));
 
