@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function LoginPage(props) {
+export default function SignupPage(props) {
     const [value, setValue] = React.useState("intermediare");
     const classes = useStyles();
     const handleChange = (event, newValue) => {

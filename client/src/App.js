@@ -6,6 +6,8 @@ import HomePage from "./components/HomePage";
 import Article from "./components/Article";
 import LoginPage from "./components/Login"
 import SignupPage from "./components/Signup"
+import Dashboard from "./components/Dashboard"
+import AddArticle from "./components/AddArticle"
 import { IntlProvider } from "react-intl";
 import messages_fr from "./translations/fr.json";
 import messages_ar from "./translations/ar.json";
@@ -31,6 +33,8 @@ function App() {
           <Route path="/article/:id" component={Article} />
           <Route path="/login" component={LoginPage} />
           <Route path="/signup" component={SignupPage} />
+          <Route path="/addarticle" component={AddArticle} />
+          <Route path="/dashboard/:id" component={Dashboard} />
         </Switch>
       </Router>
     </IntlProvider>

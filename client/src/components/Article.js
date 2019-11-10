@@ -88,15 +88,6 @@ export default function Article(props) {
     slidesToScroll: 1,
     arrows: false
   };
-  var settings2 = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    arrows: false,
-    centerPadding: "10px"
-  };
   const types = [
     <FormattedMessage
       id="pain.label"
@@ -127,6 +118,25 @@ export default function Article(props) {
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
+  const [images, setImages] = React.useState(null);
+  const [settingsType, setSettingsType] = React.useState({
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    arrows: false,
+    centerPadding: "10px"
+  });
+  const [settingsVille, setSettingsVille] = React.useState({
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    arrows: false,
+    centerPadding: "10px"
+  });
 
   const handleOpen = () => {
     setOpen(true);
@@ -144,6 +154,25 @@ export default function Article(props) {
       )
       .then(res => {
         setInfo(res.data);
+        setImages(JSON.parse(res.data.article.images))
+        if(res.data.dechetsType.length === 1)
+        setSettingsType({
+          dots: true,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false
+        });
+        if(res.data.dechetsVille.length === 1)
+        setSettingsVille({
+          dots: true,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false
+        })
       });
   }, [props.match.params.id]);
   return (
@@ -296,7 +325,7 @@ export default function Article(props) {
                 <Typography className={classes.title} style={{ marginLeft: "20px" }} gutterBottom>
                   Dechets de {info && info.article.ville}
                 </Typography>
-                <Slider {...settings2} style={{ width: "100%" }}>
+                <Slider {...settingsVille} style={{ width: "100%" }}>
                   {info && info.dechetsVille.length > 0 && info.dechetsVille.map((element, index) => (
                     <MediaCard
                       title="mdichkou"
@@ -310,6 +339,7 @@ export default function Article(props) {
                       vues={element.vues}
                       enchere={element.enchere}
                       id={element.id}
+                      images={element.images}
                     />
                   ))}
                 </Slider>
@@ -325,7 +355,7 @@ export default function Article(props) {
                 <Typography className={classes.title} style={{ marginLeft: "20px" }} gutterBottom>
                   {info && types[info.article.type]} Dechets
         </Typography>
-                <Slider {...settings2} style={{ width: "100%" }}>
+                <Slider {...settingsType} style={{ width: "100%" }}>
                   {info && info.dechetsType.length > 0 && info.dechetsType.map((element, index) => (
                     <MediaCard
                       title="mdichkou"
@@ -339,6 +369,7 @@ export default function Article(props) {
                       vues={element.vues}
                       enchere={element.enchere}
                       id={element.id}
+                      images={element.images}
                     />
                   ))}
                 </Slider>
@@ -445,6 +476,7 @@ export default function Article(props) {
                         vues={element.vues}
                         enchere={element.enchere}
                         id={element.id}
+                        images={element.images}
                       />
                     ))}
                   </Slider>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : mysql:3306
--- Généré le :  mar. 29 oct. 2019 à 09:02
+-- Généré le :  Dim 10 nov. 2019 à 13:39
 -- Version du serveur :  5.7.27
 -- Version de PHP :  7.2.22
 
@@ -42,27 +42,28 @@ CREATE TABLE `articles` (
   `ville` varchar(100) NOT NULL,
   `description` varchar(255) NOT NULL,
   `Creation_Date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `enchere` int(2) NOT NULL DEFAULT '0'
+  `enchere` int(2) NOT NULL DEFAULT '0',
+  `images` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `articles`
 --
 
-INSERT INTO `articles` (`id`, `name`, `user_id`, `poids`, `prix`, `type`, `vues`, `quantite`, `qualite`, `livraison`, `ville`, `description`, `Creation_Date`, `enchere`) VALUES
-(1, 'test', 1, 20, 1000, 1, 10, 3, 3, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:40:16', 1),
-(2, 'test', 1, 20, 2000, 0, 10, 3, 2, 'Oui', 'Khouribga', 'bottles of water', '2019-10-23 16:40:24', 0),
-(3, 'test', 1, 20, 1500, 1, 10, 3, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:40:33', 0),
-(4, 'test', 1, 20, 2000, 1, 10, 3, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:40:40', 0),
-(5, 'test', 1, 20, 2000, 1, 10, 3, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:40:50', 0),
-(6, 'test', 1, 30, 2000, 1, 10, 2, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:40:57', 0),
-(7, 'test', 1, 20, 2000, 3, 10, 3, 3, 'Oui', 'Khouribga', 'bottles of water', '2019-10-23 16:41:03', 0),
-(8, 'test', 1, 20, 2000, 3, 10, 3, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:41:10', 0),
-(9, 'test', 1, 10, 2000, 1, 10, 1, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:41:16', 0),
-(10, 'test', 1, 20, 2000, 1, 10, 3, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:41:28', 0),
-(11, 'test', 1, 20, 2000, 4, 10, 3, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:41:39', 0),
-(12, 'test', 1, 20, 2000, 1, 10, 3, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:41:46', 0),
-(13, 'test', 1, 20, 2000, 1, 10, 3, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:41:53', 0);
+INSERT INTO `articles` (`id`, `name`, `user_id`, `poids`, `prix`, `type`, `vues`, `quantite`, `qualite`, `livraison`, `ville`, `description`, `Creation_Date`, `enchere`, `images`) VALUES
+(1, 'test', 1, 20, 1000, 1, 10, 3, 3, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:40:16', 1, '{\"image_1\":\"/images/plastique.jpg\",\"image_2\":\"/images/plastique.jpg\",\"image_3\":\"/images/plastique.jpg\",\"image_4\":\"/images/plastique.jpg\"}'),
+(2, 'test', 1, 20, 2000, 0, 10, 3, 2, 'Oui', 'Khouribga', 'bottles of water', '2019-10-23 16:40:24', 0, '{\"image_1\":\"/images/plastique.jpg\",\"image_2\":\"/images/plastique.jpg\",\"image_3\":\"/images/plastique.jpg\",\"image_4\":\"/images/plastique.jpg\"}'),
+(3, 'test', 1, 20, 1500, 1, 10, 3, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:40:33', 0, '{\"image_1\":\"/images/plastique.jpg\",\"image_2\":\"/images/plastique.jpg\",\"image_3\":\"/images/plastique.jpg\",\"image_4\":\"/images/plastique.jpg\"}'),
+(4, 'test', 1, 20, 2000, 1, 10, 3, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:40:40', 0, '{\"image_1\":\"/images/plastique.jpg\",\"image_2\":\"/images/plastique.jpg\",\"image_3\":\"/images/plastique.jpg\",\"image_4\":\"/images/plastique.jpg\"}'),
+(5, 'test', 1, 20, 2000, 1, 10, 3, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:40:50', 0, '{\"image_1\":\"/images/plastique.jpg\",\"image_2\":\"/images/plastique.jpg\",\"image_3\":\"/images/plastique.jpg\",\"image_4\":\"/images/plastique.jpg\"}'),
+(6, 'test', 1, 30, 2000, 1, 10, 2, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:40:57', 0, '{\"image_1\":\"/images/plastique.jpg\",\"image_2\":\"/images/plastique.jpg\",\"image_3\":\"/images/plastique.jpg\",\"image_4\":\"/images/plastique.jpg\"}'),
+(7, 'test', 1, 20, 2000, 3, 10, 3, 3, 'Oui', 'Khouribga', 'bottles of water', '2019-10-23 16:41:03', 0, '{\"image_1\":\"/images/plastique.jpg\",\"image_2\":\"/images/plastique.jpg\",\"image_3\":\"/images/plastique.jpg\",\"image_4\":\"/images/plastique.jpg\"}'),
+(8, 'test', 1, 20, 2000, 3, 10, 3, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:41:10', 0, '{\"image_1\":\"/images/plastique.jpg\",\"image_2\":\"/images/plastique.jpg\",\"image_3\":\"/images/plastique.jpg\",\"image_4\":\"/images/plastique.jpg\"}'),
+(9, 'test', 1, 10, 2000, 1, 10, 1, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:41:16', 0, '{\"image_1\":\"/images/plastique.jpg\",\"image_2\":\"/images/plastique.jpg\",\"image_3\":\"/images/plastique.jpg\",\"image_4\":\"/images/plastique.jpg\"}'),
+(10, 'test', 1, 20, 2000, 1, 10, 3, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:41:28', 0, '{\"image_1\":\"/images/plastique.jpg\",\"image_2\":\"/images/plastique.jpg\",\"image_3\":\"/images/plastique.jpg\",\"image_4\":\"/images/plastique.jpg\"}'),
+(11, 'test', 1, 20, 2000, 4, 10, 3, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:41:39', 0, '{\"image_1\":\"/images/plastique.jpg\",\"image_2\":\"/images/plastique.jpg\",\"image_3\":\"/images/plastique.jpg\",\"image_4\":\"/images/plastique.jpg\"}'),
+(12, 'test', 1, 20, 2000, 1, 10, 3, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:41:46', 0, '{\"image_1\":\"/images/plastique.jpg\",\"image_2\":\"/images/plastique.jpg\",\"image_3\":\"/images/plastique.jpg\",\"image_4\":\"/images/plastique.jpg\"}'),
+(13, 'test', 1, 20, 2000, 1, 10, 3, 2, 'No', 'Khouribga', 'bottles of water', '2019-10-23 16:41:53', 0, '{\"image_1\":\"/images/plastique.jpg\",\"image_2\":\"/images/plastique.jpg\",\"image_3\":\"/images/plastique.jpg\",\"image_4\":\"/images/plastique.jpg\"}');
 
 -- --------------------------------------------------------
 

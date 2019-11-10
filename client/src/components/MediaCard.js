@@ -29,6 +29,7 @@ const useStyles = makeStyles({
 });
 function MediaCard(props) {
   const classes = useStyles();
+  const [images, setImages] = React.useState(JSON.parse(props.images));
   const types = [
     <FormattedMessage
       id="pain.label"
@@ -63,7 +64,7 @@ function MediaCard(props) {
       }}>
         <CardMedia
           className={classes.media}
-          image="/images/plastique.jpg"
+          image={images.image_1}
           title="Contemplative Reptile"
         />
         <CardContent>

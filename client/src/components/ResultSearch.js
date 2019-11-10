@@ -18,6 +18,7 @@ export default function ResultSearch(props) {
               vues={element.vues}
               enchere={element.enchere}
               id={element.id}
+              images={element.images}
             />
           </div>
         ))}

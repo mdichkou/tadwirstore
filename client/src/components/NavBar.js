@@ -56,23 +56,11 @@ const NavbarPage = () => {
             </MDBNavItem>
             <MDBNavItem className="mr-4 mt-2 links">
               <NavLink
-                activeClassName="active"
-                className="font-weight-bold"
-                to="#!"
+                className="font-weight-bold text-white"
+                to="/dashboard/1"
               >
-                <FormattedMessage id="nouvelles.label"
-                  defaultMessage="Nouvelles"
-                  description="Link on react page" />
-              </NavLink>
-            </MDBNavItem>
-            <MDBNavItem className="mr-4 mt-2 links">
-              <NavLink
-                activeClassName="active"
-                className="font-weight-bold"
-                to="#!"
-              >
-                <FormattedMessage id="classement.label"
-                  defaultMessage="Classement"
+                <FormattedMessage id="dashboard.label"
+                  defaultMessage="Acceuil"
                   description="Link on react page" />
               </NavLink>
             </MDBNavItem>
@@ -89,10 +77,7 @@ const NavbarPage = () => {
                   <MDBIcon icon="user" />
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default">
-                  <MDBDropdownItem href="#!"> <FormattedMessage id="signin.label"
-                    defaultMessage="Français"
-                    description="Link on react page" /></MDBDropdownItem>
-                  <MDBDropdownItem href="/signup"> <FormattedMessage id="signup.label"
+                  <MDBDropdownItem href="#!"> <FormattedMessage id="signout.label"
                     defaultMessage="Français"
                     description="Link on react page" /></MDBDropdownItem>
                 </MDBDropdownMenu>

@@ -74,7 +74,7 @@ button:focus {
 
 .slide-show .ss-fixed-height .ss-slide-image > img {
 
-    width: 100% !important; 
+    width: 100% !important;
     margin:"10px" !important;
   }
   /* @media only screen and (min-width: 481px) {
@@ -82,12 +82,13 @@ button:focus {
        background-image: url("bg.png");
      }
     } */
-    
+
     /* @media only screen and (max-width: 481px) {
      div#example1 {
        background-image: none;
      }
     } */
+
     
   #example1 {
     width: 100%;
@@ -97,3 +98,7 @@ button:focus {
     background-position: right bottom, left bottom;
     background-repeat: no-repeat;
     }
+
+    .notes {
+  border: 1px solid #f44336;
+}

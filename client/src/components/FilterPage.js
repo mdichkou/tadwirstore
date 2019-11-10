@@ -580,15 +580,15 @@ export default function FilterPage() {
         {articles.length > 0 && <ResultSearch data={articles} />}
         <div className="row">
           <div className="col text-center">
-            <Button
-              onClick={onClickPage}
-              variant="contained"
-              color="secondary"
-              className="p-2 m-2"
-            >
-              Afficher d'autre
-                <Icon className="fas fa-spinner ml-2" />
-            </Button>
+          <Button
+            onClick={onClickPage}
+            variant="contained"
+            color="primary"
+            className="p-2 m-2"
+            endIcon={<Icon className="fas fa-spinner" />}
+          >
+            Afficher autre
+          </Button>
           </div>
         </div>
       </Container>

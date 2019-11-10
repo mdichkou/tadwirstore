@@ -1,9 +1,10 @@
 {
   "accueil.label": "Accueil",
   "nouvelles.label": "Nouvelles",
+  "dashboard.label": "Dashboard",
   "classement.label": "Classement",
   "signin.label": "se connecter",
-  "signup.label": "s'inscrire",
+  "signout.label": "Déconnexion",
   "lang.label": "العربية",
   "prix.label": "prix",
   "type.label": "type",

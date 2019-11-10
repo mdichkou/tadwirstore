@@ -116,4 +116,19 @@ router.get("/article/:id", async (req, res) => {
   });
 });
 
+router.get("/myarticle/:id/:page", async (req, res) => {
+  var id = req.params.id;
+  var page = req.params.page;
+  var max = page * 4;
+  query ="SELECT * FROM `articles` WHERE user_id="+id +" limit " +
+  max +
+  ";";;
+  conn.query(query,async (err, articles) => {
+    if (err) res.send(err);
+    else {
+      res.send(articles);
+    }
+  });
+});
+
 module.exports = router;
